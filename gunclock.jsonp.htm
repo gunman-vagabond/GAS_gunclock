@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GAS Client Example</title>
+</head>
+<body>
+<script src="./jquery-3.3.1.min.js"></script>
+<!--
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        crossorigin="anonymous"></script>
+-->
+<script>
+    const endpoint = "https://script.google.com/macros/s/AKfycbxyreXaAJ4Xyn4QF7tNpUd5LFprjM8v1g8fC4PED66Swd0hhvw/exec?type=jsonp&clocksize=26";
+    $.ajax({
+        type: 'GET',
+        url: endpoint,
+        dataType: 'jsonp',
+        data: {
+        },
+        success: out => {
+//            alert(out.message);
+            showJson(out.message);
+            gunClockAsync(out.message);
+        }
+    });
+
+
+function showJson(mes) {
+  document.getElementById('jsontext').value = mes;
+}
+
+
+function gunClockAsync(mes) {
+
+  var lines = null;
+  var gunClockImage = "";
+
+  lines = mes.split(",");
+  for ( i=0; i<lines.length; i++) {
+    gunClockImage += lines[i] + "\n";
+  }
+  document.getElementById('gunclock').value = gunClockImage;
+}
+
+</script>
+<h1>JSON message</h1>
+<textarea id="jsontext" rows="10" cols="170">
+</textarea>
+
+<h1>
+
+<h1>gunclock</h1>
+<textarea id="gunclock" rows="28" cols="52">
+</textarea>
+
+</body>
+</html>
