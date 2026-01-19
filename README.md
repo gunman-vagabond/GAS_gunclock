@@ -6,10 +6,20 @@
 
 ## usage
 
+### parameter
+
+- clocksize : 時計のサイズ (ex. 18)
+- clockcolor : 時計の色 (ex. ffccff) (type=htmlのとき有効)
+- type : 時計の形式 { html | text | json | jsonp }
+- callback : コールバック関数名 (type=jsonpのとき有効)
+
+## sample
+
 ### type=html
 
-- /exec?type=html&clocksize=<時計のサイズ>
-  - ex.) https://script.google.com/macros/s/AKfycbxyreXaAJ4Xyn4QF7tNpUd5LFprjM8v1g8fC4PED66Swd0hhvw/exec?type=html&clocksize=20
+- /exec?type=html&clocksize=<時計のサイズ>&clockcolor=<時計の色>
+  - ex.) https://script.google.com/macros/s/AKfycbxyreXaAJ4Xyn4QF7tNpUd5LFprjM8v1g8fC4PED66Swd0hhvw/exec?type=html&clocksize=20&clockcolor=ccffff
+
 
 ```
          +         12        +          
